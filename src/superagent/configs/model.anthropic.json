@@ -1,12 +1,8 @@
 {
   "provider": "anthropic",
-  "model_id": "claude-opus-4-7",
-  "max_tokens": 8192,
-  "params": {
-    "temperature": 0.2,
-    "thinking": {
-      "type": "enabled",
-      "budget_tokens": 8000
-    }
-  }
+  "api_key": "",
+  "model_id": "",
+  "max_tokens": null,
+  "params": {},
+  "client_args": {}
 }

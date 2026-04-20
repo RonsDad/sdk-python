@@ -1,10 +1,7 @@
 {
   "provider": "openai",
-  "model_id": "gpt-5",
-  "params": {
-    "max_completion_tokens": 8192,
-    "reasoning": {
-      "effort": "medium"
-    }
-  }
+  "api_key": "",
+  "model_id": "",
+  "params": {},
+  "client_args": {}
 }

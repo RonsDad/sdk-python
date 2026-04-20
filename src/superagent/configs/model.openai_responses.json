@@ -1,14 +1,7 @@
 {
   "provider": "openai_responses",
-  "model_id": "gpt-5",
-  "params": {
-    "max_output_tokens": 8192,
-    "reasoning": {
-      "effort": "medium"
-    },
-    "tools": [
-      { "type": "web_search" },
-      { "type": "code_interpreter", "container": { "type": "auto" } }
-    ]
-  }
+  "api_key": "",
+  "model_id": "",
+  "params": {},
+  "client_args": {}
 }

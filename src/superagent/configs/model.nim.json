@@ -1,9 +1,7 @@
 {
   "provider": "nim",
-  "model_id": "meta/llama-3.1-70b-instruct",
-  "params": {
-    "max_tokens": 8192,
-    "temperature": 0.2,
-    "top_p": 1.0
-  }
+  "api_key": "",
+  "model_id": "",
+  "params": {},
+  "client_args": {}
 }

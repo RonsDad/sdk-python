@@ -1,9 +1,7 @@
 {
   "provider": "alibaba",
-  "model_id": "qwen3-max",
-  "params": {
-    "max_tokens": 8192,
-    "temperature": 0.2,
-    "enable_thinking": true
-  }
+  "api_key": "",
+  "model_id": "",
+  "params": {},
+  "client_args": {}
 }

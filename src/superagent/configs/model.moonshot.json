@@ -1,8 +1,7 @@
 {
   "provider": "moonshot",
-  "model_id": "kimi-k2",
-  "params": {
-    "max_tokens": 8192,
-    "temperature": 0.3
-  }
+  "api_key": "",
+  "model_id": "",
+  "params": {},
+  "client_args": {}
 }

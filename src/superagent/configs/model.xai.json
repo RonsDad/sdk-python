@@ -1,9 +1,7 @@
 {
   "provider": "xai",
-  "model_id": "grok-4",
-  "params": {
-    "max_completion_tokens": 8192,
-    "temperature": 0.2,
-    "reasoning_effort": "medium"
-  }
+  "api_key": "",
+  "model_id": "",
+  "params": {},
+  "client_args": {}
 }

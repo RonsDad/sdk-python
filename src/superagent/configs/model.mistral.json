@@ -1,8 +1,6 @@
 {
   "provider": "mistral",
-  "model_id": "mistral-large-latest",
-  "max_tokens": 8192,
-  "temperature": 0.2,
-  "top_p": 1.0,
-  "stream": true
+  "api_key": "",
+  "model_id": "",
+  "client_args": {}
 }
