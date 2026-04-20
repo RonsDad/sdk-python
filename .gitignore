@@ -15,3 +15,8 @@ repl_state
 uv.lock
 .audio_cache
 CLAUDE.md
+
+# Upstream repos cloned for the superagent flat-tool ingest; not part of this repo.
+/agent-builder/
+/samples/
+/strands-docs/
