@@ -1,0 +1,11 @@
+{
+  "provider": "zai",
+  "model_id": "glm-4.6",
+  "params": {
+    "max_tokens": 8192,
+    "temperature": 0.2,
+    "thinking": {
+      "type": "enabled"
+    }
+  }
+}

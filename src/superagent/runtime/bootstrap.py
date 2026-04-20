@@ -25,12 +25,14 @@ from strands.experimental.agent_config import config_to_agent
 from strands.session import FileSessionManager
 from strands.tools.mcp import MCPClient
 
+from ..model_providers import build_model
 from ..plugins import build_default_hooks
 
 logger = logging.getLogger(__name__)
 
 PACKAGE_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CONFIG_PATH = PACKAGE_ROOT / "agent_config.json"
+DEFAULT_MODEL_CONFIG_PATH = PACKAGE_ROOT / "configs" / "model.anthropic.json"
 DEFAULT_SESSION_DIR = os.environ.get(
     "SUPERAGENT_SESSION_DIR",
     str(Path.home() / ".superagent" / "sessions"),
@@ -52,6 +54,7 @@ def build_sop_mcp_client() -> MCPClient:
 def build_agent(
     *,
     config_path: str | os.PathLike[str] = DEFAULT_CONFIG_PATH,
+    model_config_path: str | os.PathLike[str] | None = DEFAULT_MODEL_CONFIG_PATH,
     session_id: str | None = None,
     session_dir: str = DEFAULT_SESSION_DIR,
     attach_sop_mcp: bool = True,
@@ -60,8 +63,14 @@ def build_agent(
     """Construct the superagent.
 
     Args:
-        config_path: Path to the declarative ``agent_config.json`` that the
-            ``config_to_agent`` loader will read.
+        config_path: Path to the **Type 1** ``agent_config.json`` — name,
+            system prompt, and tool roster. Validated by the SDK's strict
+            ``AGENT_CONFIG_SCHEMA``; contains no provider wiring.
+        model_config_path: Path to the **Type 2** ``model.<provider>.json``
+            file consumed by :mod:`superagent.model_providers`. Produces a
+            ``strands.models.Model`` instance that is passed as ``model=``
+            into ``config_to_agent``. If None, the agent falls back to the
+            SDK-default Bedrock model.
         session_id: Session identifier for ``FileSessionManager``. If None,
             falls back to ``SUPERAGENT_SESSION_ID`` env var or "default".
         session_dir: Directory for on-disk session storage.
@@ -81,12 +90,15 @@ def build_agent(
     if extra_hooks:
         hooks.extend(extra_hooks)
 
-    agent = config_to_agent(
-        str(config_path),
-        session_manager=session_manager,
-        conversation_manager=conversation_manager,
-        hooks=hooks,
-    )
+    agent_kwargs: dict[str, Any] = {
+        "session_manager": session_manager,
+        "conversation_manager": conversation_manager,
+        "hooks": hooks,
+    }
+    if model_config_path is not None:
+        agent_kwargs["model"] = build_model(str(model_config_path))
+
+    agent = config_to_agent(str(config_path), **agent_kwargs)
 
     if attach_sop_mcp:
         try:
