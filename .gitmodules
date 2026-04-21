@@ -1,0 +1,24 @@
+[submodule "ecosystem/tools"]
+	path = ecosystem/tools
+	url = https://github.com/strands-agents/tools
+[submodule "ecosystem/evals"]
+	path = ecosystem/evals
+	url = https://github.com/strands-agents/evals
+[submodule "ecosystem/agent-sop"]
+	path = ecosystem/agent-sop
+	url = https://github.com/strands-agents/agent-sop
+[submodule "ecosystem/samples"]
+	path = ecosystem/samples
+	url = https://github.com/strands-agents/samples
+[submodule "ecosystem/fun-tools"]
+	path = ecosystem/fun-tools
+	url = https://github.com/cagataycali/strands-fun-tools
+[submodule "ecosystem/strands-google"]
+	path = ecosystem/strands-google
+	url = https://github.com/cagataycali/strands-google
+[submodule "ecosystem/agent-skills"]
+	path = ecosystem/agent-skills
+	url = https://github.com/aws-samples/sample-strands-agents-agentskills
+[submodule "ecosystem/agent-builder"]
+	path = ecosystem/agent-builder
+	url = https://github.com/strands-agents/agent-builder
